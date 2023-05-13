@@ -6,6 +6,10 @@ def validate_length(value, min: int, max: int):
     value: The input value must be a string or an integer
     min: The minimum length to validate against
     max: The maximum length to validate against
+
+    Returns:
+    True: if the length of the input is valid
+    False: if the length of the input is not valid
     """
     if not isinstance(value, (int, str)):
         raise ValueError("Value must be an integer or a string")
