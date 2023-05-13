@@ -12,7 +12,7 @@ function App() {
         {pageStatus?.message === "success" ? (
           <Success setPageStatus={setPageStatus} />
         ) : pageStatus?.message === "error" ? (
-          <Error setPageStatus={setPageStatus} />
+          <Error setPageStatus={setPageStatus} pageStatus={pageStatus} />
         ) : (
           <>
             <h1>Your Payment Details</h1>
