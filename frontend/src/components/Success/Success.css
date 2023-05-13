@@ -1,0 +1,17 @@
+.success-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.reset-btn {
+    margin-top: 1rem;
+    font-size: .8rem;
+    background: none;
+    border: none;
+    color: #208ac6;
+    text-decoration: underline;
+    cursor: pointer;
+}
