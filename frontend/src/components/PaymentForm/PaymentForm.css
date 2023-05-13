@@ -66,6 +66,7 @@
   color: #F6F9FB;
   border-radius: 24px;
   transition: all 0.4s ease-in-out;
+  cursor: pointer;
 }
 
 
