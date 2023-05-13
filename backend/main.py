@@ -17,4 +17,11 @@ async def index(request: Request):
 
 @app.post("/payment")
 async def payment(data: PaymentSchema):
+    """
+    Process a payment request
+
+    Returns:
+    dict: message: success -> if successful
+    dict: detail: list of error information -> if an error occurs
+    """
     return {"message": "success"}
