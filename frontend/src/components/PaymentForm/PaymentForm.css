@@ -34,7 +34,6 @@
   font-style: normal;
   font-weight: 600;
   font-size: 1rem;
-
   color: #000000;
 }
 
@@ -48,6 +47,10 @@
 /* Firefox */
 .form-input[type="number"] {
   -moz-appearance: textfield;
+}
+
+.form-input:focus {
+    outline: none;
 }
 
 .cvv {
