@@ -6,14 +6,22 @@ const PaymentForm = () => {
     <form className="form">
       <div className="form-control">
         <label>NAME:</label>
-        <input className="form-input" type="text" placeholder="e.g John Doe" />
+        <input
+          name="name"
+          className="form-input"
+          type="text"
+          placeholder="e.g John Doe"
+          required
+        />
       </div>
       <div className="form-control">
         <label>CARD NUMBER:</label>
         <input
+          name="cardNumber"
           className="form-input"
           type="number"
           placeholder="e.g 5339 2343 2343 2332"
+          required
         />
       </div>
       <div className="form-group">
@@ -28,6 +36,7 @@ const PaymentForm = () => {
             className="form-input cvv"
             type="number"
             placeholder="****"
+            required
           />
         </div>
       </div>
