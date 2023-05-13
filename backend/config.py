@@ -1,5 +1,7 @@
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from main import app
+
+app = FastAPI()
 
 allowed_origins = ["*"]
 allowed_headers = ["*"]

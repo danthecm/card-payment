@@ -1,8 +1,6 @@
-from fastapi import FastAPI, Request
+from fastapi import Request
 from schemas import PaymentSchema
-
-app = FastAPI()
-
+from config import app
 
 @app.get('/')
 async def index(request: Request):
@@ -11,10 +9,11 @@ async def index(request: Request):
     """
     base_url = request.base_url
     return {
-        "message": "Evaluation API", 
-        "version": "0.1", 
+        "message": "Evaluation API",
+        "version": "0.1",
         "docs": [f"{base_url}docs", f"{base_url}redoc"]
     }
+
 
 @app.post("/payment")
 async def payment(data: PaymentSchema):
