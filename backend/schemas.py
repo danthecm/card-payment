@@ -16,7 +16,7 @@ class PaymentSchema(BaseModel):
     def validate_card_number(cls, value):
         is_valid = validate_length(value, 16, 19)
         if not is_valid:
-            raise ValueError("Invalid card number length")
+            raise ValueError("Invalid card number length. Card number must be 16-19 characters")
         return value
 
     @validator('expiry_date')
