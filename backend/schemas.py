@@ -35,7 +35,7 @@ class PaymentSchema(BaseModel):
                     "Invalid date. Date should be greater than or equal to the current month.")
         return value
 
-    @validator
+    @validator('cvv')
     def validate_cvv(cls, value: int, values) -> int:
         card_number = values.get('card_number')
         card_start_value = str(card_number)[:2]
@@ -43,6 +43,7 @@ class PaymentSchema(BaseModel):
         max_len = 3
         if card_start_value in ["34", "37"]:
             min_len = 4
+            max_len = 4
         is_valid = validate_length(value, min_len, max_len)
         if not is_valid:
             raise ValueError(
