@@ -10,9 +10,9 @@ function App() {
     <main className="main">
       <div className="container">
         {pageStatus?.message === "success" ? (
-          <Success />
+          <Success setPageStatus={setPageStatus} />
         ) : pageStatus?.message === "error" ? (
-          <Error />
+          <Error setPageStatus={setPageStatus} />
         ) : (
           <>
             <h1>Your Payment Details</h1>
