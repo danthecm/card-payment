@@ -3,14 +3,13 @@ import "./PaymentForm.css";
 import LoadingSpinner from "../LoadingSpinner";
 import { formatDate } from "../../utils/dateHelpers";
 import { sendPaymentRequest } from "../../services/paymentService";
+import { formatCardNumber } from "../../utils/cardHelpers";
 
 const PaymentForm = ({ setPageStatus }) => {
   const [isLoading, setIsLoading] = useState(false);
 
   const cardNumberInputHandler = (event) => {
-    const input = event.target;
-    let cardNumber = input.value.replace(/\D/g, "");
-    cardNumber = cardNumber.replace(/(\d{4})(?=\d)/g, "$1 ");
+    const cardNumber = formatCardNumber(event.target.value);
     event.target.value = cardNumber;
   };
 
