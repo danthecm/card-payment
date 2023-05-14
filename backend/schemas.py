@@ -1,6 +1,6 @@
 from pydantic import BaseModel, validator
 from datetime import date
-from helpers import validate_length
+from helpers import validate_length, luhn_algorithm_check
 
 
 class PaymentSchema(BaseModel):
@@ -14,9 +14,12 @@ class PaymentSchema(BaseModel):
 
     @validator('card_number')
     def validate_card_number(cls, value):
-        is_valid = validate_length(value, 16, 19)
-        if not is_valid:
+        is_valid_len = validate_length(value, 16, 19)
+        if not is_valid_len:
             raise ValueError("Invalid! Card number must be 16-19 digits")
+        is_valid_lunh = luhn_algorithm_check(value)
+        if not is_valid_lunh:
+            raise ValueError("Invalid Card")
         return value
 
     @validator('expiry_date')
