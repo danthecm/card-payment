@@ -17,3 +17,21 @@ def validate_length(value, min: int, max: int):
     if len(value) < min or len(value) > max:
         return False
     return True
+
+
+def luhn_algorithm_check(value):
+    result = []
+    for index, value in enumerate(reversed(value)):
+        try:
+            value = int(value)
+        except ValueError:
+            continue
+        if index % 2 != 0:
+            value = value * 2
+            if value > 9:
+                value = value - 9
+        result.append(value)
+    total_sum = sum(result)
+    if total_sum % 10 == 0:
+        return True
+    return False
