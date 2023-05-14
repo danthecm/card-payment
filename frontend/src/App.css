@@ -23,3 +23,11 @@ h1 {
   text-transform: capitalize;
   color: #208ac6;
 }
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 90vw;
+    height: auto;
+  }
+
+}
