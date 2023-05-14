@@ -3,7 +3,7 @@ import "./PaymentForm.css";
 import LoadingSpinner from "../LoadingSpinner";
 import { formatDate } from "../../utils/dateHelpers";
 import { sendPaymentRequest } from "../../services/paymentService";
-import { formatCardNumber } from "../../utils/cardHelpers";
+import { formatCardNumber, removeSpaces } from "../../utils/cardHelpers";
 
 const PaymentForm = ({ setPageStatus }) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -17,13 +17,14 @@ const PaymentForm = ({ setPageStatus }) => {
     e.preventDefault();
     setIsLoading(true);
     const name = e.target.name.value;
-    const card_number = e.target.cardNumber.value;
+    const cardNumber = e.target.cardNumber.value;
+    const cleanCardNumber = removeSpaces(cardNumber);
     const expiry_date = e.target.expiryDate.value;
     const formattedDate = formatDate(expiry_date);
     const cvv = e.target.cvv.value;
     const card_details = {
       name,
-      card_number,
+      card_number: cleanCardNumber,
       expiry_date: formattedDate,
       cvv,
     };
