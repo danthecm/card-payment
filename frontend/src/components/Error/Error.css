@@ -8,7 +8,7 @@
 
 .retry-btn {
     margin-top: 1rem;
-    font-size: .8rem;
+    font-size: 1rem;
     background: none;
     border: none;
     color: #208ac6;
@@ -17,7 +17,7 @@
 }
 
 .error-message {
-    font-size: .5rem;
+    font-size: .8rem;
     color: red;
     text-align: start;
 }
