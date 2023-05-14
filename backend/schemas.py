@@ -16,7 +16,7 @@ class PaymentSchema(BaseModel):
     def validate_card_number(cls, value):
         is_valid = validate_length(value, 16, 19)
         if not is_valid:
-            raise ValueError("Invalid card number length. Card number must be 16-19 characters")
+            raise ValueError("Invalid! Card number must be 16-19 digits")
         return value
 
     @validator('expiry_date')
@@ -32,7 +32,7 @@ class PaymentSchema(BaseModel):
         else:
             if input_date < date.today().replace(day=1):
                 raise ValueError(
-                    "Invalid date. Date should be greater than or equal to the current month.")
+                    "Invalid! Your card has expired")
         return value
 
     @validator('cvv')
@@ -47,5 +47,5 @@ class PaymentSchema(BaseModel):
         is_valid = validate_length(value, min_len, max_len)
         if not is_valid:
             raise ValueError(
-                "Invalid CVV. CVV length should be equal to 3 or 4 for american express cards")
+                "Invalid cvv for card type")
         return value
