@@ -7,6 +7,13 @@ import { sendPaymentRequest } from "../../services/paymentService";
 const PaymentForm = ({ setPageStatus }) => {
   const [isLoading, setIsLoading] = useState(false);
 
+  const cardNumberInputHandler = (event) => {
+    const input = event.target;
+    let cardNumber = input.value.replace(/\D/g, "");
+    cardNumber = cardNumber.replace(/(\d{4})(?=\d)/g, "$1 ");
+    event.target.value = cardNumber;
+  };
+
   const formSumbitHandler = (e) => {
     e.preventDefault();
     setIsLoading(true);
@@ -43,8 +50,9 @@ const PaymentForm = ({ setPageStatus }) => {
         <input
           name="cardNumber"
           className="form-input"
-          type="number"
+          type="text"
           placeholder="e.g 5339 2343 2343 2332"
+          onInput={cardNumberInputHandler}
           required
         />
       </div>
