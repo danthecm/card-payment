@@ -8,7 +8,7 @@ class PaymentSchema(BaseModel):
     Payment Schema Model
     """
     name: str
-    card_number: int
+    card_number: str
     expiry_date: str
     cvv: int
 
