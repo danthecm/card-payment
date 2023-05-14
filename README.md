@@ -46,7 +46,9 @@ You must have the following installed on your system before you begin
 
 ## Getting Started
 
-Start by cloning the repository to do this click on the green clone button just above the file browser
+Start by cloning the repository to do this click on the green Code button just above the file browser
+![WhatsApp Image 2023-05-14 at 9 18 42 PM](https://github.com/danthecm/card-payment/assets/52335952/e155fb0e-ebd3-47b2-97fc-9e83edef10c2)
+
 
 
 The project root directory contains frontend and backend folders
