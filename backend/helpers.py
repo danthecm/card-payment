@@ -19,7 +19,17 @@ def validate_length(value, min: int, max: int):
     return True
 
 
-def luhn_algorithm_check(value):
+def luhn_algorithm_check(value: str) -> bool:
+    """
+    Checks if the value matches Luhn's Algorithm
+
+    Args:
+    value: string
+
+    Return:
+    True if the value matches Luhn's Algorithm
+    False if the value does not match Luhn's Algorithm
+    """
     result = []
     for index, value in enumerate(reversed(value)):
         try:
