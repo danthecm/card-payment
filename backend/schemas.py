@@ -38,6 +38,8 @@ class PaymentSchema(BaseModel):
     @validator('cvv')
     def validate_cvv(cls, value: int, values) -> int:
         card_number = values.get('card_number')
+        if not card_number:
+            return value
         card_start_value = str(card_number)[:2]
         min_len = 3
         max_len = 3
